@@ -14,9 +14,11 @@ class UserCoursesController < ApplicationController
   end
 
   def show
+    @course_subject = @user_course.course.course_subjects
     @subjects = @course.subjects.map do |subject|
-      [subject, @user.user_subjects.find_by(user_course_id: @user_course.id),
-        CourseSubject.of_course_and_subject(@course.id, subject.id) ]
+      [subject, UserSubject.find_by_subject(@user_course.user.id, subject.id,
+        @user_course.id), CourseSubject.of_course_and_subject(@course.id, subject.id)]
+    #binding.pry
     end
     @trainer_in_course = @course.users.page(params[:page])
       .per Settings.pagination.per_page_member

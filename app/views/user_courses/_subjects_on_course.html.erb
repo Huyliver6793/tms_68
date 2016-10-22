@@ -28,11 +28,11 @@
           <%= render "process_subject" %>
         </div>
         <div class="col-md-8">
-          <% subjects.each do |subject, user_subject, user_course| %>
+          <% subjects.each do |subject, user_subject, course_subject| %>
             <ul class="timeline">
               <li class="timeline-inverted">
                 <div class="timeline-badge warning">
-                  <i class="btn btn-<%= show_status user_subject %> btn-circle btn-lg"></i>
+                  <i class="btn btn-<%= show_status_subject course_subject %> btn-circle btn-lg"></i>
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">

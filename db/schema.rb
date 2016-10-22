@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(version: 20161021064642) do
   create_table "course_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "course_id"
     t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["course_id"], name: "index_course_subjects_on_course_id", using: :btree
     t.index ["subject_id"], name: "index_course_subjects_on_subject_id", using: :btree
   end
